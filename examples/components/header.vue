@@ -1,4 +1,4 @@
-<style scoped>
+<style lang="scss" scoped>
   .headerWrapper {
     height: 80px;
   }
@@ -180,7 +180,7 @@
       transform: translateY(-2px);
     }
 
-    @when active {
+    .is-active {
       span, i {
         color: #409EFF;
       }
@@ -301,6 +301,14 @@
               :to="`/${ lang }/component`">{{ langConfig.components }}
             </router-link>
           </li>
+          <li 
+            class="nav-item nav-item-theme"
+          >
+            <router-link
+              active-class="active"
+              :to="`/${ lang }/theme`">{{ langConfig.theme }}
+            </router-link>
+          </li>
           <li class="nav-item">
             <router-link
               active-class="active"
@@ -361,12 +369,6 @@
               </el-dropdown-menu>
             </el-dropdown>
           </li>
-          
-          <!--theme picker-->
-          <li class="nav-item nav-theme-switch" v-show="isComponentPage">
-            <theme-configurator :key="lang" v-if="showThemeConfigurator"></theme-configurator>
-            <theme-picker v-else></theme-picker>
-          </li>
         </ul>
       </div>
     </header>
@@ -374,11 +376,13 @@
 </template>
 <script>
   import ThemePicker from './theme-picker.vue';
-  import ThemeConfigurator from './theme-configurator';
   import AlgoliaSearch from './search.vue';
   import compoLang from '../i18n/component.json';
   import Element from 'main/index.js';
+  import themeLoader from './theme/loader';
+  import { getTestEle } from './theme/loader/api.js';
   import bus from '../bus';
+  import { ACTION_USER_CONFIG_UPDATE } from './theme/constant.js';
 
   const { version } = Element;
 
@@ -399,9 +403,10 @@
       };
     },
 
+    mixins: [themeLoader],
+
     components: {
       ThemePicker,
-      ThemeConfigurator,
       AlgoliaSearch
     },
 
@@ -417,13 +422,18 @@
       },
       isComponentPage() {
         return /^component/.test(this.$route.name);
-      },
-      showThemeConfigurator() {
-        const host = location.hostname;
-        return host.match('localhost') || host.match('elenet');
       }
     },
-
+    mounted() {
+      getTestEle()
+        .then(() => {
+          this.$isEle = true;
+          ga('send', 'event', 'DocView', 'Inner');
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
     methods: {
       switchVersion(version) {
         if (version === this.version) return;
@@ -459,7 +469,7 @@
       xhr.open('GET', '/versions.json');
       xhr.send();
       let primaryLast = '#409EFF';
-      bus.$on('user-theme-config-update', (val) => {
+      bus.$on(ACTION_USER_CONFIG_UPDATE, (val) => {
         let primaryColor = val.global['$--color-primary'];
         if (!primaryColor) primaryColor = '#409EFF';
         const base64svg = 'data:image/svg+xml;base64,';

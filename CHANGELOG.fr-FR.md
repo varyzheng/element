@@ -1,84 +1,453 @@
 ## Changelog
 
+## 2.9.1
+
+*2019-05-30*
+
+#### New features
+
+- Table
+  - tree-props，default-expand-all, expand-row-keys, toggle-row-expansion method and expand-change event are supported in Tree Table (#15709 by @ziyoung)
+
+#### Bug fixes
+
+- Table
+  - Fix some bugs (#15709 by @ziyoung)
+- Theme
+  - Update api host (#15784 by @iamkun)
+
+#### Optimization
+
+- Chore
+  - Update InfiniteScroll type (#15794 by @iamkun)
+
+### 2.9.0
+
+*2019-05-30*
+
+#### New features
+
+- Backtop
+  - Add Backtop component (#15541 by @iamkun)
+- PageHeader
+  - Add PageHeader component (#15714 by @ziyoung)
+- InfiniteScroll
+  - Add InfiniteScroll directive (#15567 by @iamkun) 
+- Cascader
+  - Add multiple mode and filter-method (#15611 by @SimonaliaChen)
+- Message
+  - Display in stack mode (#15639 by @island205)
+- Tag
+  - Add prop effect (#15725 by @SimonaliaChen)
+- Tabs
+  - Left align title when type is card (#15695 by @luckyCao)
+- DatePicker
+  - Support literal strings (#15525 by island205)
+- Image
+  - Add support for transmit attrs and listeners (#15578 by @VanMess)
+- Theme
+  - Add popup background (#15412 by @iamkun)  
+- Chore
+  - Update new 2.9.0 index page (#15682 by @iamkun)
+
+#### Bug fixes
+
+- Table
+  - Fix sort-change behaviour when sort condition is null (#15012 by @joelxr)
+- Image
+  - Fix ssr and object-fit compatibility (#15346 by @SimonaliaChen)
+- Input
+  - Fix show-word-count style in el-form (#15359 by @lvjiaxuan) 
+  - Fix clear icon is not centered (#15354 by @YiiGuxing)
+- Calendar
+  - Fix not correct day of week when the day is Sunday (#15399 by @qingdengyue)
+  - Fix October disappear bug (#15394 by @qingdengyue)
+- Tabs
+  - Fix basic tab nested in card tab padding error (#15461 by @SimonaliaChen)
+- Tag
+  - Fix stop propagation problem (#15150 by @infjer)
+- Form
+  - Fix input-group within form-item height error (#15457 by @SimonaliaChen)
+  - Fix resetFields issue (15181 by @luckyCao)
+- Tooltip
+  - Fix custom tabindex not work (#15619 by @SimonaliaChen )
+- Link
+  - Fix link icon style class (#15752 by @iamkun)
+- Select  
+  - Revert set value to null when cleared (#15447 by @iamkun)
+- Loading
+  - Fix dom not change when loading state change quickly (#15123 by @FAKER-A)
+- Switch
+  - Label with el-switch repeating event (#15178 by @FAKER-A)
+- Slider
+  - Fix style problem when clicking slider bar(#15561 by @luckyCao)
+- Radio
+  - Fix issue 14808 (#14809 by @OverTree)
+- Form
+  - Fix resetFields issue (15181 by @luckyCao)
+- Chore
+  - Upgrade dependencies and fix demo bug (#15324 by ziyoung)
+- Type
+  - Fix loading type definition (#15635 by @iamkun)
+  - Fix Icon type (#15634 by @iamkun)
+  - Fix Link type definition (#15402 by @iamkun)
+
+#### Optimization
+
+- Cascader
+  - Refactor (#15611 by @SimonaliaChen)
+- Chore
+  - Update make new component logic (by @iamkun)
+- Docs
+  - Rename variable in docs (#15185 by @liupl)
+  - Fix image attribute type and default value (#15423 by @haoranyu)
+  - Fix form doc bug (#15228 by @SHERlocked93)
+ 
+### 2.8.2
+
+*2019-04-25*
+
+#### Corrections de bugs
+
+- Icon
+  - Mise à jour (#15272 par @iamkun)
+- Docs
+  - Correction du style de Form et Input (#15273 par @ziyoung)
+
+### 2.8.1
+
+*2019-04-25*
+
+#### Corrections de bugs
+
+- Icon
+  - Mise à jour de l'icône du cascadeur et du select (#15264 par @SimonaliaChen)
+  - Mise à jour (#15258 #15268 par @iamkun)
+
+#### Optimisation
+
+- Chore
+  - Mise à jour du script de build (#15267 par @ziyoung)
+- Docs
+  - Correction de la couleur de souslignage d'un lien (#15265 par @iamkun)
+- Autre
+  - Correction d'une configuration de migration non compatible avec les propriétés et évènements en camelCase (#15260 par @SimonaliaChen)
+
+### 2.8.0
+
+*2019-04-25*
+
+#### Nouvelles fonctionnalités
+
+- Divider
+  - Ajout du composant divider (#15055 par @island205)
+- Rate
+  - Ajout des couleurs et des classes d'icônes personnalisées en passant un objet (#15051 par @SimonaliaChen)
+- Link
+  - Ajout du composant Link (#15052 par @iamkun)
+- Calendar
+  - Ajout du composant calendar (#14908 by @ziyoung)
+- Icon
+  - Ajout d'une icône (#15214 par @iamkun)
+- Alert
+  - Ajout d'un thème sombre (#15041 par @island205)
+- Image
+  - Ajout du composant image (#15117 par @SimonaliaChen)
+- Collapse
+  - CollapseItem peut être désactivé (#15076 par @ziyoung)
+- Carousel
+  - Ajout d'un attribut de direction et support de la direction verticale (#15122 by @ziyoung)
+- Pagination
+  - Ajout d'un attribut caché sur une seule page (#15096 par @ziyoung)
+- Slider
+  - Ajout des marqueurs (#15133 par @luckyCao)
+- Input
+  - Ajout de l'attribut show-word-count (#15075 par @luckyCao)
+- InputNumber
+  - Ajout de l'attribut step-strictly (#15050 par @luckyCao)
+- Tooltip, Dropdown, Popover
+  - Support de l'attribut tabindex (#15167 by @ziyoung)
+
+#### Corrections de bugs
+
+- Notification
+  - Correction du word-break du titre (#15008 par @iamkun)
+- Form
+  - Correction d'une erreur dans les règles de validation (#14985 par @luckyCao)
+  - Correction du style du label (#14969 par @ziyoung)
+  - Les FormItem requis affiche un astérisque lorsque le label est auto (#15144 by @ziyoung)
+- Pagination
+  - Fix du slot non mis à jour (#14711 par @lucyhao)
+- Table
+  - Correction d'un bug de chargement en mode lazy (#15101 by @ziyoung)
+  - Correction de la largeur des cellules lorsque colspan est supérieur à 1 (#15196 by @ziyoung)
+  - Amélioration des performances (#14868 by @ziyoung)
+  - Ne pas émettre de déclencheurs de changement de tri pendant l'initialisation (#14625 by @PeanutWatson)
+  - Comportement égal pour height et max-height (#14660 by @arthurdenner)
+- Dialog
+  - Correction de la casse des longs mots (#15027 par @iamkun)
+- Alert
+  - Mise à jour (#15186 par @ziyoung)
+- Tabs
+  - Correction d'un problème où le rejet d'une promesse touchait l'application (#14816 par @ffxsam)
+  - Rerendu lors d'un changement de slots (#1523238 by @ziyoung)
+- Message
+  - Mise à jour (#14968 par @agoni121212)
+- Select
+  - Correction d'une erreur lorsque la valeur est indéfinie ou nulle (#15022 par @luckyCao)
+- Tree
+  - Détruire le noeud courant après sa suppression (#14604 par @sinchang)
+  - Amélioration des performances (#14881 par @ChenZhuoSteve)
+- Dropdown
+  - Correction de style (#14907 par @doing123)
+- Slider
+  - Correction d'un bug clavier a11y cassé (#14792 by @erezsob)
+- Menu
+  - La valeur ActiveIndex sera nulle si defaultIndex n'existe pas (#14074 par @hoythan)
+- Directive
+  - RepeatClick : utilisation de Date.now() au lieu de Date() (#14776 par @pavelmash)
+- Upload
+  - Correction du style d'affichage des images transparentes (#15039 par @iamkun)
+- Thème
+  - Ajout d'une bordure (#1525256 par @iamkun)
+
+#### Optimisation
+
+- Chore
+  - Mise à jour du changelog zh-cn (#14965 par @iamkun)
+  - Masquer la description de la démo quand elle est vide (#15014 par @ziyoung)
+  - Afficher les informations du serveur de développement par défaut par @iamkun)
+  - Correction d'une erreur de changelog 2.6.0 (#15026 par @iamkun)
+  - Mise à jour de la configuration de compilation (#14821 par @abc3660170)
+  - Ajout d'hmr (#15221 par @SimonaliaChen)
+  - Utilisation de sourcemap dans l'environnement dev (#15087 par @ibufu)
+Docs
+  - Renommage de la variable dans docs (#14602 #15003 #15094 #15105 par @liupl)
+  - Correction d'une erreur de téléchargement de doc (#15023 par @iamkun)
+  - Mise à jour du validateur de formulaire personnalisé doc (#15040 par @iamkun)
+  - Mise à jour des onglets docs pour afficher les onglets verticaux (#15053 par @iamkun)
+  - Utiliser eleme.cn comme domaine (#15139 par @ziyoung)
+  - Correction du nom de route Image (#15194 par @iamkun)
+  - Suppression de la traduction en double (#15207 par @iamkun)
+
+#### Breaking changes
+
+- Rate
+  - Correction du support de l'affichage décimal en mode désactivé (#15089 par @haoranyu)
+- Select
+  - Utiliser le label de l'option pour régler le placeholder en mode filtre (#14989 par @ibufu)
+
+### 2.7.2
+
+*2019-04-03*
+
+#### Corrections de bugs
+
+- Form
+  - Correction du style de `label-width` auto (#14955 par @ziyoung)
+  
+#### Optimisation
+- Docs
+  - Correction d'une erreur de lien img (#14957 par @iamkun)
+- Chore
+  - Correction d'une erreur de déploiement mkdir (#14952 par @iamkun)
+
+### 2.7.1
+
+*2019-04-03*
+
+#### Corrections de bugs
+
+- Select
+  - Définir la valeur à null lorsqu'elle est effacée (#14322 par @aaronfulkerson)
+- Input
+  - Mise à jour des valeurs dépendantes du DOM lors d'un changement de type (#14889 par @wacky6)
+- Table
+  - Faire fonctionner `defaultExpandAll' lorsqu'une colonne étendue existe (#14935 par @ziyoung)
+- Dialog
+  - Couleur d'arrière-plan configurable (#14939 par @ziyoung)
+- Form
+  - `label-width` supporte la largeur automatique (#14944 by @ziyoung)
+  
+#### Optimisation
+- Docs
+  - Mise à jour de la documentation en espagnol (#14913 par @Gonzalo2310)
+  - Ajout d'un document en français pour le nouveau composant (#14924 by @ziyoung)
+  - Optimiser la documentation des onglets (#14938 by @ziyoung)
+
+### 2.7.0
+
+*2019-03-28*
+
+#### Nouvelles fonctionnalités
+
+- Table
+  - Ajout du support de l'arborescence des données (#14632 by @ziyoung)
+
+#### Corrections de bugs
+
+- Tabs
+  - Utilise la couleur primaire comme couleur de l'ombre (#14558 par @Richard-Choooou)
+  - Rerendu lorsque label change (#14496 par @akki-jat)
+- Table
+  - Le pied de page suit l'alignement des cellules du corps (#14730 by @ziyoung)
+- NavMenu
+  - Correction d'un bug de clic sur el-submenu (#14443 par @PanJiaChen)
+- Dropdown
+  - Compatible avec la nouvelle syntaxe v-slot 2.6 (#14832 by @ziyoung)
+- ColorPicker
+  - Correction d'une erreur de couleur hexadécimale (#14793 par @iamkun)
+- Tree
+  - Revert pr #13349 (#14847 par @ziyoung)
+- Tooltip
+  - Affichage lorsque la valeur initiale est vraie (#14826 by @ziyoung)
+- Docs
+  - Mise à jour de la documentation du cascader (#14442 par @panhezeng)
+- Style
+  - Correction des media queries dans sm-only, md-only, lg-only (#14611 by @sinchang)
+
+#### Optimisation
+
+- Chore
+  - Ajouter la description de la page web (#14802 par @iamkun)
+
+### 2.6.3
+
+*2019-03-21*
+
+#### Corrections de bugs
+
+- Correction du style de la démo de Cascader (#14789 par @ziyoung)
+- Suppression des opérations DOM inutiles (#14788 by @ziyoung)
+- Correction DatePicker valeur par défaut DST (#14562 par @wacky6)
+
+### 2.6.2
+
+*2019-03-21*
+
+##### Nouvelles fonctionnalités
+
+- DatePicker
+  - Ajout d'une plage de mois pour l'attribut type (#14487 par @zxyRealm)
+- i18n
+  - Ajout de la locale croate (#14360 par @danijelh)
+
+##### Corrections de bugs
+
+- Input
+  - Correction d'un régression (#14572 par @wacky6)
+- DatePicker
+  - Correction du calcul du premier jour de la semaine (#14523 par @sinchang)
+  - Correction du format de valeur du sélecteur de semaine (#13754 par @wacky6)
+- Steps
+  - Correction du problème #14502 (#14596 par @sinchang)
+  - Correction du style avec le thème simple (#14610 par @sinchang)
+- Docs
+  - Mise à jour de la doc française pour la 2.6.1 et correction de fautes de frappe (#1455555 par @smalesys)
+  - Renommage d'une variable dans la documentation de la table (#14587 par @likwotsing)
+  - Ajout de l'index de recherche en français (#14565 par @iamkun)
+  - Correction du style de la page TimePicker (#14579 par @ziyoung)
+  - Renommage d'une variable dans la page Upload (#14593 par @liupl)
+  - Mise à jour de la traduction française (#14643 par @smalesys)
+  - Mise à jour de la documentation du validateur de formulaire asynchrone (#14694 par @iamkun)
+  - Correction d'une erreur de doc tooltip (#14748 par @iamkun)
+  - Correction d'une coquille (#14751 par @2bj)
+  - Correction de la surbrillance pour Webkit touch (#14703 by @VladG0r)
+
+##### Optimisation
+
+- Tâche
+  - Mise à jour du script de build dans le ci (#14600 par @ziyoung)
+  - Mise à jour du tracking ga (#14560 par @iamkun)
+  - Ajout d'un événement ga supplémentaire (#14633 par @iamkun)
+  - Mise à jour du groupe de discussion (#14741 par @iamkun)
+  - Mise à jour des deps de test et conf (#14735 par @wacky6)
+  - Mise à jour de Gulp (#14745 by @ziyoung)
+  - Utilisez le codepen pour afficher les démos et correction d'une erreur de doc (#14747 by @ziyoung)
+
 ### 2.6.1
 
 *2019-03-03*
 
-#### Bug fixes
+#### Corrections de bugs
 
-- **Don't specify node version** (by @iamkun in #14546)
-- Fix doc directory in `deloy-faas.sh` (by @ziyoung in #14553)
-- Fix date style issue in changelog for 2.6.0 (by @island205 in #14547)
-- Fix doc typo (by @wack6 in #14552)
+- **Ne pas spécifier la version de node** (par @iamkun dans #14546)
+- Correction du répertoire doc dans `deloy-faas.sh` (par @ziyoung dans #14553)
+- Correction d'un problème de style de date dans le changelog de la 2.6.0 (par @island205 dans #14547)
+- Correction d'une typo dans la doc (par @wack6 dans #14552)
 
 ### 2.6.0
 
 *2019-03-01*
 
-#### New features
+#### Nouvelles fonctionnalités
 - Timeline
-  - Add timeline component (by @jikkai in #14248)
+  - Ajout d'un composant timeline (par @jikkai dans #14248)
 - DropdownItem
-  - Add icon prop to `el-dropdown-item` (by @gabrielboliveira in #14088)
+  - Ajout de la propriété `icon` à `el-dropdown-item` (par @gabrielboliveira dans #14088)
 - Input
-  - Add show-password props (by @phshy0607 in #13966)
+  - Ajout de propriétés pour afficher les mots de passe (par @phshy0607 dans #13966)
 - Select
-  - Add slot `empty` (by @elfman in #13785)
+  - Ajout du slot `empty` (par @elfman au #13785)
 - Autocomplete
-  - Add highlight-first-item prop (by @YamenSharaf in #14269)
+  - Ajout de la propriété `highlight-first-item` (par @YamenSharaf dans #14269)
 - I18n
-  - Created Armenian locale (by @hamletbarsamyan in #14214)
+  - Création de la locale Arménienne (par @hamletbarsamyan dans #14214)
 - Docs
-  - French translation (by @smalesys in #12153, #14418, #14434)
+  - Traduction française (par @smalesys dans #12153, #14418, #14434)
 
-#### Optimization
+#### Optimisation
 - Alert
-  - Update alert description default slot class (by @iamkun in #14488)
+  - Mise à jour de la classe du slot par défaut de la description de Alert (par @iamkun dans #14488)
 - Input
-  - Update input password (by @iamkun in #14480)
+  - Mise à jour de l'input de type password (par @iamkun dans #14480)
 - InputNumber
-  - Remove unnecessary parseFloat (by @JuniorTour in #14172)
+  - Retrait d'un parseFloat inutile (par @JuniorTour au #14172)
 - Menu
-  - Add support for `el-menu-item` without index (by @georgyfarniev in #13298)
+  - Ajout du support de `el-menu-item` sans index (par @georgyfarniev dans #13298)
 - Table
-  - Remove some html DOM operations (by @elfman in #13643)
+  - Suppression de certaines opérations du DOM (par @elfman dans #13643)
 - Upload
-  - Optimize code (by @elfman in #13973)
+  - Optimisation du code (par @elfman dans #13973)
 - Popup
-  - Optimize code (by @KAionro in #14413)
+  - Optimisation du code (par @KAionro dans #14413)
 - Docs
-  - Add more detail about how to run play mode for contribution (by @island205 in #14355)
-  - Warn input as a controlled component. (by @wacky6 in #14463)
-  - Update Table doc (by @luguokong in #14329)
-  - Update input doc (by @iamkun in #14437)
-  - Update custom-theme docs (by @wangguohao in #14297)
-  - Make the icon style change when hover on it (by @tuxinghuan in #14295)
+  - Ajout de détails sur la façon d'exécuter le mode play pour les contributeurs (par @island205 dans #14355)
+  - Ajout d'un avertissement concernant Input (par @wacky6 dans #14463)
+  - Mise à jour de la doc de Table (par @luguokong dans #14329)
+  - Mise à jour de la doc d'Input (par @iamkun dans #14437)
+  - Mise à jour de la doc sur le thème (par @wangguohaohao dans #14297)
+  - Le style de l'icône change lorsque vous passez dessus (par @tuxinghuan dans #14295)
 - Build
-  - Minimizing css and js for Element doc site (by @iamkun in #14430)
-  - Speeding up webpack (by @hetech in #14484)
-  - Use cli to select release version (by @hetech in #14354)
-- Install stale for issue handling (by @island205 in #14392)
+  - Minification du CSS et du JS pour le site d'Element (par @iamkun dans #14430)
+  - Accélération de webpack (par @hetech dans #14484)
+  - Utilisation du cli pour sélectionner la version de publication (par @hetech dans #14354)
+- Installation de stale pour la gestion des issues (par @island205 dans #14392)
 
-#### Bug fixes
+#### Corrections de bugs
 - Menu
-  - Fix subMenu focus bug when switch browser tab (by @liupl in #13976)
+  - Correction d'un bug de focus des sous-menus lors du changement d'onglet du navigateur (par @liupl dans #13976)
 - MessageBox
-  - Fix type definition (by @NateScarlet in #14278)
+  - Correction de la définition du type (par @NateScarlet dans #14278)
 - ScrollBar
-  - Prevent right button click on thumb (by @xifeiwu in #14196)
+  - Empêche le clic droit sur le bouton du pouce (par @xifeiwu dans #14196)
 - Switch
-  - Trigger form validation if value changes (by @hetech in #14426)
+  - Déclenchement de la validation du formulaire si la valeur change (par @hetech dans #14426)
 - Table
-  - Make toggleAllSelection method an instance method (by @letanure in #14075)
+  - La méthode toggleAllSelection est maintenant une méthode d'instance (par @letanure dans #14075)
 - Tabs & Dropdown
-  - Fix style (by @hetech in #14452)
+  - Correction du style (par @hetech dans #14452)
 - Tree
-  - Empty-text tips are different from tables (by @ColinCll in #14331)
+  - Les tips sont différents des tableaux (par @ColinCll dans #14331)
 - Docs
-  - Fix  DatetimePicker format doc error (by @iamkun in #14290)
-  - Spelling issue in datepicker documentation (by @helmut in #14481)
-  - Fix pagination doc style (by @liuchuzhang in #14451)
+  - Correction d'une erreur de doc du DatetimePicker (par @iamkun dans #14290)
+  - Problème d'orthographe dans la documentation du DatePicker (par @helmut dans #14481)
+  - Correction du style de la doc de Pagination(par @liuchuzhang dans #14451)
 
+#### Breaking changes
+- Table
+  - Fix params order of row events (by @jikkai in #12086)
+  
 ### 2.5.4
 
 *2019-02-01*

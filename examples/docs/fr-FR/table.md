@@ -177,7 +177,7 @@ Vous pouvez mettre en valeur certaines lignes du tableau suivant leur état, com
 ```html
 <template>
   <el-table
-    :data="tableData2"
+    :data="tableData"
     style="width: 100%"
     :row-class-name="tableRowClassName">
     <el-table-column
@@ -221,7 +221,7 @@ Vous pouvez mettre en valeur certaines lignes du tableau suivant leur état, com
     },
     data() {
       return {
-        tableData2:  [{
+        tableData:  [{
           date: '2016-05-03',
           name: 'Tom',
           address: 'No. 189, Grove St, Los Angeles'
@@ -253,7 +253,7 @@ Lorsqu'il y a beaucoup de lignes, il peut être utile d'avoir un header fixe afi
 ```html
 <template>
   <el-table
-    :data="tableData3"
+    :data="tableData"
     height="250"
     style="width: 100%">
     <el-table-column
@@ -277,7 +277,7 @@ Lorsqu'il y a beaucoup de lignes, il peut être utile d'avoir un header fixe afi
   export default {
     data() {
       return {
-        tableData3: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           address: 'No. 189, Grove St, Los Angeles'
@@ -423,7 +423,7 @@ Si vous avez un gros volume de données à afficher, vous pouvez fixer le header
 ```html
 <template>
   <el-table
-    :data="tableData3"
+    :data="tableData"
     style="width: 100%"
     height="250">
     <el-table-column
@@ -464,7 +464,7 @@ Si vous avez un gros volume de données à afficher, vous pouvez fixer le header
   export default {
     data() {
       return {
-        tableData3: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           state: 'California',
@@ -529,7 +529,7 @@ Quand les données changent dynamiquement, vous pouvez avoir besoin d'une hauteu
 ```html
 <template>
   <el-table
-    :data="tableData4"
+    :data="tableData"
     style="width: 100%"
     max-height="250">
     <el-table-column
@@ -569,7 +569,7 @@ Quand les données changent dynamiquement, vous pouvez avoir besoin d'une hauteu
       width="120">
       <template slot-scope="scope">
         <el-button
-          @click.native.prevent="deleteRow(scope.$index, tableData4)"
+          @click.native.prevent="deleteRow(scope.$index, tableData)"
           type="text"
           size="small">
           Supprimer
@@ -588,7 +588,7 @@ Quand les données changent dynamiquement, vous pouvez avoir besoin d'une hauteu
     },
     data() {
       return {
-        tableData4: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           state: 'California',
@@ -653,7 +653,7 @@ Quand la structure du tableau est complexe, vous pouvez grouper les headers afin
 ```html
 <template>
   <el-table
-    :data="tableData3"
+    :data="tableData"
     style="width: 100%">
     <el-table-column
       prop="date"
@@ -696,7 +696,7 @@ Quand la structure du tableau est complexe, vous pouvez grouper les headers afin
   export default {
     data() {
       return {
-        tableData3: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           state: 'California',
@@ -838,7 +838,7 @@ Vous pouvez aussi sélectionner plusieurs lignes.
 <template>
   <el-table
     ref="multipleTable"
-    :data="tableData3"
+    :data="tableData"
     style="width: 100%"
     @selection-change="handleSelectionChange">
     <el-table-column
@@ -862,7 +862,7 @@ Vous pouvez aussi sélectionner plusieurs lignes.
     </el-table-column>
   </el-table>
   <div style="margin-top: 20px">
-    <el-button @click="toggleSelection([tableData3[1], tableData3[2]])">Sélectionner les deuxième et troisième lignes</el-button>
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">Sélectionner les deuxième et troisième lignes</el-button>
     <el-button @click="toggleSelection()">Effacer la sélection</el-button>
   </div>
 </template>
@@ -871,7 +871,7 @@ Vous pouvez aussi sélectionner plusieurs lignes.
   export default {
     data() {
       return {
-        tableData3: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           address: 'No. 189, Grove St, Los Angeles'
@@ -1251,7 +1251,7 @@ Lorsque le contenu d'une ligne est trop long et que vous ne souhaitez pas affich
 ```html
 <template>
   <el-table
-    :data="tableData3"
+    :data="tableData"
     style="width: 100%">
     <el-table-column type="expand">
       <template slot-scope="props">
@@ -1276,7 +1276,7 @@ Lorsque le contenu d'une ligne est trop long et que vous ne souhaitez pas affich
   export default {
     data() {
       return {
-        tableData3: [{
+        tableData: [{
           date: '2016-05-03',
           name: 'Tom',
           state: 'California',
@@ -1333,6 +1333,126 @@ Lorsque le contenu d'une ligne est trop long et que vous ne souhaitez pas affich
 ```
 :::
 
+### Arborescence et lazy loading
+
+:::demo You can display tree structure data. When row contains the `children` field, it is treated as nested data. For rendering nested data, the prop `row-key` is required。Also, child row data can be loaded asynchronously. Set `lazy` property of Table to true and the function `load`. Specify `hasChildren` attribute in row to determine which row contains children. Both `children` and `hasChildren` can be configured via `tree-props`.
+
+```html
+<template>
+<div>
+  <el-table
+    :data="tableData"
+    style="width: 100%;margin-bottom: 20px;"
+    row-key="id"
+    border
+    default-expand-all>
+    <el-table-column
+      prop="date"
+      label="date"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="Nom"
+      sortable
+      width="180">
+    </el-table-column>
+  </el-table>
+
+  <el-table
+    :data="tableData1"
+    style="width: 100%"
+    row-key="id"
+    border
+    lazy
+    :load="load"
+    :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
+    <el-table-column
+      prop="date"
+      label="Date"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="Nom"
+      width="180">
+    </el-table-column>
+  </el-table>
+</div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          id: 1,
+          date: '2016-05-02',
+          name: 'wangxiaohu'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: 'wangxiaohu'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: 'wangxiaohu',
+          children: [{
+              id: 31,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+            }, {
+              id: 32,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+          }]
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: 'wangxiaohu'
+        }],
+        tableData1: [{
+          id: 1,
+          date: '2016-05-02',
+          name: 'wangxiaohu'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: 'wangxiaohu'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: 'wangxiaohu',
+          hasChildren: true
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: 'wangxiaohu'
+        }]
+      }
+    },
+    methods: {
+      load(tree, treeNode, resolve) {
+        setTimeout(() => {
+          resolve([
+            {
+              id: 31,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+            }, {
+              id: 32,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+            }
+          ])
+        }, 1000)
+      }
+    },
+  }
+</script>
+```
+:::
+
 ### Ligne de somme
 
 Pour les tableaux de nombres, vous pouvez ajouter une ligne en plus pour afficher la somme de chaque colonne.
@@ -1341,7 +1461,7 @@ Pour les tableaux de nombres, vous pouvez ajouter une ligne en plus pour affiche
 ```html
 <template>
   <el-table
-    :data="tableData6"
+    :data="tableData"
     border
     show-summary
     style="width: 100%">
@@ -1372,7 +1492,7 @@ Pour les tableaux de nombres, vous pouvez ajouter une ligne en plus pour affiche
   </el-table>
 
   <el-table
-    :data="tableData6"
+    :data="tableData"
     border
     height="200"
     :summary-method="getSummaries"
@@ -1406,7 +1526,7 @@ Pour les tableaux de nombres, vous pouvez ajouter une ligne en plus pour affiche
   export default {
     data() {
       return {
-        tableData6: [{
+        tableData: [{
           id: '12987122',
           name: 'Tom',
           amount1: '234',
@@ -1481,7 +1601,7 @@ Vous pouvez configurer l'étendue des lignes et colonnes afin de fusionner des c
 <template>
   <div>
     <el-table
-      :data="tableData6"
+      :data="tableData"
       :span-method="arraySpanMethod"
       border
       style="width: 100%">
@@ -1512,7 +1632,7 @@ Vous pouvez configurer l'étendue des lignes et colonnes afin de fusionner des c
     </el-table>
 
     <el-table
-      :data="tableData6"
+      :data="tableData"
       :span-method="objectSpanMethod"
       border
       style="width: 100%; margin-top: 20px">
@@ -1545,7 +1665,7 @@ Vous pouvez configurer l'étendue des lignes et colonnes afin de fusionner des c
   export default {
     data() {
       return {
-        tableData6: [{
+        tableData: [{
           id: '12987122',
           name: 'Tom',
           amount1: '234',
@@ -1715,7 +1835,7 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | header-cell-style | Fonction qui retourne un style pour chaque cellule de header. Peut aussi être un objet assignant un style à chaque cellule de header. | Function({row, column, rowIndex, columnIndex})/Object | — | — |
 | row-key | Clé de chaque ligne, utilisée pour optimiser le rendu. Requise si `reserve-selection` est activé. Quand c'est un `String`, l'accès multi-niveaux est supporté, e.g. `user.info.id`, mais `user.info[0].id` n'est pas supporté. Dans ce dernier cas une `Function` devrait être utilisée. | Function(row)/String | — | — |
 | empty-text | Texte à afficher quand il n'y a pas de données. Vous pouvez changer cette zone grâce à `slot="empty"`. | String | — | No Data |
-| default-expand-all | Si toutes les lignes sont étendues par défaut, ne marche que si des lignes ont type="expand". | Boolean | — | false |
+| default-expand-all | whether expand all rows by default, works when the table has a column type="expand" or contains tree structure data | Boolean | — | false |
 | expand-row-keys | Détermine les lignes qui sont étendues, contient les clés des lignes correspondantes. Vous devriez configurer `row-key` avant celle-ci. | Array | — | |
 | default-sort | Détermine l'ordre de tri par défaut. La propriété `prop` détermine la colonne par défaut, `order` détermine l'ordre par défaut. | Object | `order`: ascending, descending | Si `order` est absent, son défaut sera `ascending`. |
 | tooltip-effect | Propriété `effect` de Tooltip. | String | dark/light | | dark |
@@ -1724,6 +1844,10 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | summary-method | La méthode pour calculer la somme. | Function({ columns, data }) | — | — |
 | span-method | Méthode qui retourne les valeurs de colspan et rowspan. | Function({ row, column, rowIndex, columnIndex }) | — | — |
 | select-on-indeterminate | Contrôle le comportement de la checkbox globale dans les tables avec sélection multiple lorsque seulement certaines lignes sont sélectionnées. Si `true`, toutes les lignes sont sélectionnées. | Boolean | — | true |
+| indent                  | horizontal indentation of tree data      | Number    | — | 16   |
+| lazy                    | whether to lazy loading data             | Boolean   | — | —    |
+| load                    | method for loading child row data, only works when `lazy` is true | Function({ row, treeNode, resolve }) | — | — |
+| tree-props              | configuration for rendering nested data | Object | — | { hasChildren: 'hasChildren', children: 'children' } |
 
 ### Évènements de Table
 
@@ -1737,15 +1861,15 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | cell-click | Se déclenche quand l'utilisateur clique sur une cellule. | row, column, cell, event |
 | cell-dblclick | Se déclenche quand l'utilisateur double-clique sur une cellule. | row, column, cell, event |
 | row-click | Se déclenche quand l'utilisateur clique sur une ligne. | row, column, event |
-| row-contextmenu | Se déclenche quand l'utilisateur fait un click droit sur une ligne. | row, column, event |
+| row-contextmenu | Se déclenche quand l'utilisateur fait un clic droit sur une ligne. | row, column, event |
 | row-dblclick | Se déclenche quand l'utilisateur double-clique sur une ligne. | row, column, event |
 | header-click | Se déclenche quand l'utilisateur clique sur une colonne du header. | column, event |
-| header-contextmenu | Se déclenche quand l'utilisateur fait un click droit sur une colonne du header. | column, event |
+| header-contextmenu | Se déclenche quand l'utilisateur fait un clic droit sur une colonne du header. | column, event |
 | sort-change | Se déclenche quand l'ordre de tri change. | { column, prop, order } |
 | filter-change | column's key. If you need to use the filter-change event, this attribute is mandatory to identify which column is being filtered. | filters |
 | current-change | Se déclenche quand la ligne sélectionnée change. | currentRow, oldCurrentRow |
 | header-dragend | Se déclenche après un changement de taille de colonne en déplaçant la ligne verticale du header. | newWidth, oldWidth, column, event |
-| expand-change | Se déclenche quand l'utilisateur étend ou réduit une ligne. | row, expandedRows |
+| expand-change  | triggers when user expands or collapses a row (for expandable table, second param is expandedRows; for tree Table, second param is expanded) | row, (expandedRows \| expanded) |
 
 ### Méthodes de Table
 
@@ -1754,7 +1878,7 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | clearSelection | Dans les tables avec sélection multiple, efface la sélection. | — |
 | toggleRowSelection | Dans les tables avec sélection multiple, change la sélection d'une ligne. Grâce au deuxième paramètre vous pouvez directement décider si cette ligne est sélectionnée. | row, selected |
 | toggleAllSelection | Utilisé dans les tables à sélection multiples, sélectionne toutes les lignes. | - |
-| toggleRowExpansion | Pour les lignes extensibles, change l'état de la ligne. Grâce au deuxième paramètre vous pouvez directement décider si cette ligne est étendue. | row, expanded |
+| toggleRowExpansion | used in expandable Table or tree Table, toggle if a certain row is expanded. With the second parameter, you can directly set if this row is expanded or collapsed | row, expanded |
 | setCurrentRow | Dans les tables à sélection simple, sélectionne une ligne. Sans paramètre la sélection est effacé. | row |
 | clearSort | Efface le tri. | — |
 | clearFilter | Efface les filtres des colonnes dont les `columnKey` sont passées. Si aucun paramètre, efface tout les filtres. | columnKeys |
